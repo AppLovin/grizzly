@@ -280,12 +280,9 @@ public abstract class HttpHandler {
         // TODO re-implement
         final ServerFilterConfiguration config = req.getServerFilter().getConfiguration();
         
-        final String serverName = config.getHttpServerName() + '/' +
-                config.getHttpServerVersion();
-        
         final ByteBuffer bb = HtmlHelper.getErrorPage("Not Found",
-                                                "Resource identified by path '" + req.getRequestURI() + "', does not exist.",
-                                                serverName);
+                                                "Resource does not exist.",
+                                                "");
         res.setContentLength(bb.limit());
         res.setContentType("text/html");
         OutputBuffer out = res.getOutputBuffer();
