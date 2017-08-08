@@ -181,7 +181,7 @@ public class FileCacheTest {
         boolean isOk = false;
         try {
             final Future<HttpContent> responseFuture1 = send("localhost", PORT, request1);
-            final HttpContent response1 = responseFuture1.get(10, TimeUnit.SECONDS);
+            final HttpContent response1 = responseFuture1.get(120, TimeUnit.SECONDS);
 
             assertEquals("Not cached data mismatch\n" + cacheProbe, "Hello not cached data", response1.getContent().toStringContent());
 
@@ -249,7 +249,7 @@ public class FileCacheTest {
 
             final String pattern = new String(data);
             final Future<HttpContent> responseFuture1 = send("localhost", PORT, request1);
-            final HttpContent response1 = responseFuture1.get(10, TimeUnit.SECONDS);
+            final HttpContent response1 = responseFuture1.get(60, TimeUnit.SECONDS);
 
             assertEquals("ContentType is wrong " + response1.getHttpHeader().getContentType(), MimeType.getByFilename(fileName), response1.getHttpHeader().getContentType());
             assertEquals("Direct data mismatch\n" + cacheProbe, pattern, response1.getContent().toStringContent());
@@ -318,7 +318,7 @@ public class FileCacheTest {
         boolean isOk = false;
         try {
             final Future<HttpContent> responseFuture1 = send("localhost", PORT, request1);
-            final HttpContent response1 = responseFuture1.get(10, TimeUnit.SECONDS);
+            final HttpContent response1 = responseFuture1.get(30, TimeUnit.SECONDS);
 
             assertEquals(probe.toString(), "gzip", response1.getHttpHeader().getHeader("Content-Encoding"));
             assertEquals("Not cached data mismatch\n" + probe, "Hello not cached data", response1.getContent().toStringContent());
