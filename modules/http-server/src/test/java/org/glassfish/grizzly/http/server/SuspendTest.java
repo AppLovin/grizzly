@@ -92,7 +92,7 @@ public class SuspendTest {
 
     private static final Logger LOGGER = Grizzly.logger(SuspendTest.class);
     
-    public static final int PORT = 18890;
+    public static final int PORT = 1888;
     private ScheduledThreadPoolExecutor scheduledThreadPool;
     private final String testString = "blabla test.";
     private final byte[] testData = testString.getBytes();

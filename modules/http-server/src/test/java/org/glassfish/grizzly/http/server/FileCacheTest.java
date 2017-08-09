@@ -100,7 +100,7 @@ import static org.junit.Assert.*;
 @SuppressWarnings("unchecked")
 public class FileCacheTest {
 
-    public static final int PORT = 18891;
+    public static final int PORT = 1889;
     private HttpServer httpServer;
     private final boolean isSslEnabled;
 
